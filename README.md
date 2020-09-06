@@ -19,18 +19,31 @@ $ sudo rfkill unblock wlan
 $ sudo nano /etc/hostapd/hostapd.conf
 
 WRITE:
+
 country\_code=US
+
 interface=wlan0
+
 ssid=Aerostry
+
 hw\_mode=g
+
 channel=7
+
 macaddr\_acl=0
+
 auth\_algs=1
+
 ignore\_broadcast\_ssid=0
+
 wpa=2
+
 wpa\_passphrase=GoCalBears
+
 wpa\_key\_mgmt=WPA-PSK
+
 wpa\_pairwise=TKIP
+
 rsn\_pairwise=CCMP
 
 $ sudo systemctl reboot
