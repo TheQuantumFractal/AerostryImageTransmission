@@ -12,7 +12,7 @@ $ sudo printf "\ninterface wlan0\n    static ip\_address=192.168.4.1/24\n    noh
 
 $ sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.orig
 
-$ sudo printf "interface=wlan0\ndhcp-range=192.168.4.2,192.168.4.20,255.255.255.0,24h\ndomain=wlan\naddress=/gw.wlan/192.168.4.1"
+$ sudo printf "interface=wlan0\ndhcp-range=192.168.4.2,192.168.4.20,255.255.255.0,24h\ndomain=wlan\naddress=/gw.wlan/192.168.4.1" >> /etc/dnsmasq.conf
 
 $ sudo rfkill unblock wlan
 
