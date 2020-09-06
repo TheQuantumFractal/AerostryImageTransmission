@@ -1,14 +1,23 @@
 Setting up access point on Raspberry Pi:
+
 $ sudo apt install hostapd
+
 $ sudo systemctl unmask hostapd
+
 $ sudo systemctl enable hostapd
+
 $ sudo apt install dnsmasq
+
 $ sudo printf "\ninterface wlan0\n    static ip\_address=192.168.4.1/24\n    nohook wpa\_supplicant" >> /etc/dhcpcd.conf
+
 $ sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.orig
+
 $ sudo printf "interface=wlan0\ndhcp-range=192.168.4.2,192.168.4.20,255.255.255.0,24h\ndomain=wlan\naddress=/gw.wlan/192.168.4.1"
+
 $ sudo rfkill unblock wlan
 
 $ sudo nano /etc/hostapd/hostapd.conf
+
 WRITE:
 country\_code=US
 interface=wlan0
