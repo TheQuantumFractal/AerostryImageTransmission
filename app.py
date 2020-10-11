@@ -10,10 +10,11 @@ DIRECTORY = "images/"
 # Send a zipped file with the last N images (in reverse alphabetic order)
 @app.route('/byCount', methods=['GET'])
 def by_count():
-    count = int(request.args.get('count'))
+    count = request.args.get('count')
     # location = request.args.get('location')
     if not count:
         count = 1
+    count = int(count)
     file_list = []
     for name in glob.glob(DIRECTORY + '*.jpg'):
         file_list.append(name)
@@ -40,7 +41,7 @@ def by_last():
         last = ''
     file_list = []
     for name in glob.glob(DIRECTORY + '*.jpg'):
-        if name.split('.') > last:
+        if name[:-4] > last:
             file_list.append(name)
     if not len(file_list):
         return "NO IMAGES"
